@@ -102,21 +102,21 @@ To update the main route table
 
 ## Once all the three instances are deployed 
 
-	1.	Copying key of private instance to your jump box using scp .(make sure you are in the directory where the key is placed )
+1.	Copying key of private instance to your jump box using scp .(make sure you are in the directory where the key is placed )
 	```
 	scp -i PrincyHW.pem PrincyHW.pem ec2-user@54.167.98.214:PrincyHW.pem
 	```
 
-	2.	Connect the  jumpbox using ssh 
+2.	Connect the  jumpbox using ssh 
 	```
 	ssh -i Princy_KeyPair.pem ec2-user@54.167.98.214
 	```
 	
-	3.	Connect the  private instance  using ssh 
+3.	Connect the  private instance  using ssh 
 	```
 	ssh -i PrincyHW.pem ec2-user@10.1.2.185
 	```
 
-	4.	Ping Google and it works !
+4.	Ping Google and it works !
 	![Ping](https://github.com/princys-lab/develop/blob/master/AWS/Ping.png)
  
