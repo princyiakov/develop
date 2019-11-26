@@ -18,32 +18,32 @@ An SSH Jump Box is simply a single, hardened server that you "jump" through in o
 ![Subnet](https://github.com/princys-lab/develop/blob/master/AWS/Subnet.png)
 
 
-##Create Internet Gateway
+## Create Internet Gateway
 ![IGW](https://github.com/princys-lab/develop/blob/master/AWS/IGW.png)
 
-##Attach IGW to a VPC
+## Attach IGW to a VPC
 ![IGWToVPC](https://github.com/princys-lab/develop/blob/master/AWS/IGWToVPC.png)
 
-##Create Route table
+## Create Route table
 ![CreateRoute](https://github.com/princys-lab/develop/blob/master/AWS/CreateRoute.png) 
 
-##Click on edit route table 
+## Click on edit route table 
 ![EditRoute](https://github.com/princys-lab/develop/blob/master/AWS/EditRoute.png)
 
-##Add route table for the Public Subnet
+## Add route table for the Public Subnet
 ![AddRoute](https://github.com/princys-lab/develop/blob/master/AWS/AddRoute.png)
 
 
-##Associate the public subnet 
+## Associate the public subnet 
 ![AssociatePublic](https://github.com/princys-lab/develop/blob/master/AWS/AssociatePublic.png)
 
-##Create a security group 
+## Create a security group 
 ![CreateSG](https://github.com/princys-lab/develop/blob/master/AWS/CreateSG.png)
 
-##Edit Inbound rules
+## Edit Inbound rules
 ![CreateRules](https://github.com/princys-lab/develop/blob/master/AWS/CreateRules.png)
 
-#Launch the NAT instance
+# Launch the NAT instance
 
 1.	Launch an instance into your public subnet from an AMI that's been configured to run as a NAT instance. Amazon provides Amazon Linux AMIs that are configured to run as NAT instances. These AMIs include the string amzn-ami-vpc-nat in their names, so you can search for them in the Amazon EC2 console.
 		a.	Open the Amazon EC2 console.
@@ -88,11 +88,11 @@ An SSH Jump Box is simply a single, hardened server that you "jump" through in o
 5.	Update the main route table to send traffic to the NAT instance. 
 
 
-##Create another instance which would act as Jump Box
+## Create another instance which would act as Jump Box
 
-##Create a private instance 
+## Create a private instance 
 
-##Don’t forget to update the route table for your private instance to connect the IGW using Public Instance
+## Don’t forget to update the route table for your private instance to connect the IGW using Public Instance
 The private subnet in your VPC is not associated with a custom route table, therefore it uses the main route table. By default, the main route table enables the instances in your VPC to communicate with each other. You must add route that sends all other subnet traffic to the NAT instance.
 To update the main route table
 	1.	Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
@@ -101,7 +101,7 @@ To update the main route table
 	4.	On the Routes tab, choose Edit, specify 0.0.0.0/0 in the Destination box, select the instance ID of the NAT instance from the Target list, and then choose Save.
 	5.	On the Subnet Associations tab, choose Edit, and then select the Associate check box for the subnet. Choose Save.
 
-##Once all the three instances are deployed 
+## Once all the three instances are deployed 
 
 	1.	Copying key of private instance to your jump box using scp .(make sure you are in the directory where the key is placed )
 	```
