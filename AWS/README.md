@@ -11,7 +11,6 @@ An SSH Jump Box is simply a single, hardened server that you "jump" through in o
 
 
 ![Create VPC](https://github.com/princys-lab/develop/blob/master/AWS/CreateVPC.jpg)
-## Create two subnet : One for Public and One for Private
 
 
 ## Create two subnet : One for Public and One for Private
