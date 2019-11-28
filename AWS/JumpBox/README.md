@@ -9,45 +9,45 @@ An SSH Jump Box is simply a single, hardened server that you "jump" through in o
 Use Jump Box to connect the final instance which uses routing via NAT instance to ping google.com
 
 ## Architecture Diagram 
-![Architecture Diagram](https://github.com/princys-lab/develop/blob/master/AWS/JumpBoxARC.jpg)
+![Architecture Diagram](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/JumpBoxARC.jpg)
 
 # Steps to follow 
 
 ## Create VPC
 
 
-![Create VPC](https://github.com/princys-lab/develop/blob/master/AWS/CreateVPC.jpg)
+![Create VPC](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/CreateVPC.jpg)
 
 
 ## Create two subnet : One for Public and One for Private
-![Subnet](https://github.com/princys-lab/develop/blob/master/AWS/Subnet.png)
+![Subnet](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/Subnet.png)
 
 
 ## Create Internet Gateway
-![IGW](https://github.com/princys-lab/develop/blob/master/AWS/IGW.png)
+![IGW](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/IGW.png)
 
 ## Attach IGW to a VPC
-![IGWToVPC](https://github.com/princys-lab/develop/blob/master/AWS/IGWToVPC.png)
+![IGWToVPC](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/IGWToVPC.png)
 
 ## Create Route table
-![CreateRoute](https://github.com/princys-lab/develop/blob/master/AWS/CreateRoute.png) 
+![CreateRoute](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/CreateRoute.png) 
 
 ## Click on edit route table 
-![EditRoute](https://github.com/princys-lab/develop/blob/master/AWS/EditRoute.png)
+![EditRoute](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/EditRoute.png)
 
 ## Add route table for the Public Subnet
-![AddRoute](https://github.com/princys-lab/develop/blob/master/AWS/AddRoute.png)
+![AddRoute](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/AddRoute.png)
 
 
 ## Associate the public subnet 
-![AssociatePublic](https://github.com/princys-lab/develop/blob/master/AWS/AssociatePublic.png)
+![AssociatePublic](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/AssociatePublic.png)
 
 ## Create a security group 
-![CreateSG](https://github.com/princys-lab/develop/blob/master/AWS/CreateSG.png)
+![CreateSG](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/CreateSG.png)
 !! Dont forget to open port for ICMP to enable ping 
 
 ## Edit Inbound rules
-![CreateRules](https://github.com/princys-lab/develop/blob/master/AWS/CreateRules.png)
+![CreateRules](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/CreateRules.png)
 
 # Launch the NAT instance
 
@@ -58,11 +58,11 @@ Use Jump Box to connect the final instance which uses routing via NAT instance t
  
 	ii.	On the Choose an Instance Type page, select the instance type, then choose Next: Configure Instance Details.
  
-	![ChooseInstance](https://github.com/princys-lab/develop/blob/master/AWS/ChooseInstance.png)
+	![ChooseInstance](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/ChooseInstance.png)
 
 	iii.	On the Configure Instance Details page, select the VPC you created from the Network list, and select your public subnet from the Subnet list.
  
-	![ConfigureInstance](https://github.com/princys-lab/develop/blob/master/AWS/ConfigureInstance.png)
+	![ConfigureInstance](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/ConfigureInstance.png)
 
 	iv.	(Optional) Select the Public IP check box to request that your NAT instance receives a public IP address. If you choose not to assign a public IP address now, you can allocate an Elastic IP address and assign it to your instance after it's launched. Choose Next: Add Storage
  
@@ -82,7 +82,7 @@ Use Jump Box to connect the final instance which uses routing via NAT instance t
 		d.	For the NAT instance, verify that this attribute is disabled. Otherwise, choose Yes, Disable.
 		e.	If the NAT instance has a secondary network interface, choose it from Network interfaces on the Description tab and choose the interface ID to go to the network interfaces page. Choose Actions, Change Source/Dest. Check, disable the setting, and choose Save.
 
-	![DisableDestCheck](https://github.com/princys-lab/develop/blob/master/AWS/DisableDestCheck.png)
+	![DisableDestCheck](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/DisableDestCheck.png)
 
 4.	If you did not assign a public IP address to your NAT instance during launch (step 3), you need to associate an Elastic IP address with it.
 		a.	Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
@@ -125,5 +125,5 @@ To update the main route table
 	```
 
 4.	Ping Google and it works !
-	![Ping](https://github.com/princys-lab/develop/blob/master/AWS/Ping.png)
+	![Ping](https://github.com/princys-lab/develop/blob/master/AWS/JumpBox/Ping.png)
  
