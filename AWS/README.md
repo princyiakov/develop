@@ -4,6 +4,12 @@
 
 An SSH Jump Box is simply a single, hardened server that you "jump" through in order to access other servers on the inner network. Sometimes called a bastion or relay host, it's simply a server that all of your users can log into and use as a relay server to connect to other servers.
 
+# Our Target
+
+Use Jump Box to connect the final instance which uses routing via NAT instance to ping google.com
+
+## Architecture Diagram 
+![Architecture Diagram](https://github.com/princys-lab/develop/blob/master/AWS/JumpBoxARC.jpg)
 
 # Steps to follow 
 
@@ -38,6 +44,7 @@ An SSH Jump Box is simply a single, hardened server that you "jump" through in o
 
 ## Create a security group 
 ![CreateSG](https://github.com/princys-lab/develop/blob/master/AWS/CreateSG.png)
+!! Dont forget to open port for ICMP to enable ping 
 
 ## Edit Inbound rules
 ![CreateRules](https://github.com/princys-lab/develop/blob/master/AWS/CreateRules.png)
