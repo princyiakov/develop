@@ -14,12 +14,12 @@ To convert the text embedded in the image to a machine-encoded text
 
 Below mentioned image was converted into text
 
-https://github.com/princys-lab/develop/blob/master/OCRUsingPython/image.jpg
+![Image](https://github.com/princys-lab/develop/blob/master/OCRUsingPython/image.jpg)
  
 
 ## Converted Text : 
 
-https://github.com/princys-lab/develop/blob/master/OCRUsingPython/pythonOCRcapture.PNG
+![Converted Text](https://github.com/princys-lab/develop/blob/master/OCRUsingPython/pythonOCRcapture.PNG)
 
 # For Code : 
 
